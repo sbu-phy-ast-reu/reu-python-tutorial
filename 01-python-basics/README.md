@@ -1,16 +1,14 @@
-Monday schedule:
-```
-10:00 am - 11:15 am : Introduction to Jupyter and Python Data Types
+# Introduction to Python
 
-11:15 am - 11:30 am : break
+1. Python Datatypes:
 
-11:30 am - 12:30 pm : Introduction to Python control structures
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/01-python-basics/python-datatypes.ipynb
 
-12:30 pm -  1:30 pm : lunch
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=01-python-basics%2Fpython-datatypes.ipynb)
 
- 1:30 pm -  2:45 pm : exercises I
+2. Python Advanced Datatypes:
 
- 2:45 pm -  3:00 pm : break
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/01-python-basics/python-advanced-datatypes.ipynb
 
- 3:00 pm -  5:00 pm : exercises II
-```
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=01-python-basics%2Fpython-advanced-datatypes.ipynb)
+
