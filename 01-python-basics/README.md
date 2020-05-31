@@ -6,7 +6,7 @@
 
    * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=01-python-basics%2Fpython-datatypes.ipynb)
 
-   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/master/01-python-basics/python-datatypes.ipynb)
+   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/master/01-python-basics/python-datatypes.ipynb)
 
 
 2. Python Advanced Datatypes:
