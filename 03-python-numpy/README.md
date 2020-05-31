@@ -1,17 +1,18 @@
-Wednesday schedule:
-```
- 9:00 am - 10:15 am : NumPy part I
+# Introduction to NumPy
 
-10:15 am - 10:30 am : break
+1. NumPy Basics:
 
-10:30 am - 12:15 pm : NumPy part II
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/03-python-numpy/numpy-basics.ipynb
 
-12:15 pm -  2:15 pm : IACS activity
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=03-python-numpy%2Fnumpy-basics.ipynb)
 
- 2:15 pm -  3:30 pm : exercises I
+   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/master/03-python-numpy/numpy-basics.ipynb)
 
- 3:30 pm -  3:45 pm : break
 
- 3:45 pm -  5:00 pm : exercises II
-```
+2. NumPy Exercises:
 
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/03-python-numpy/numpy-exercises.ipynb
+
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=03-python-numpy%2Fnumpy-exercises.ipynb)
+
+   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/master/03-python-numpy/numpy-exercises.ipynb)
