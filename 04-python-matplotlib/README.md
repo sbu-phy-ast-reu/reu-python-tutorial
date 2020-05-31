@@ -1,16 +1,19 @@
-Thursday schedule:
-```
- 9:00 am - 10:15 am : matplotlib
+# Introduction to Matplotlib
 
-10:15 am - 10:30 am : break
+1. Matplotlib Basics:
 
-10:30 am - 12:15 pm : other plotting
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/04-python-matplotlib/matplotlib-basics.ipynb
 
-12:15 pm -  1:30 pm : lunch
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=04-python-matplotlib%2Fmatplotlib-basics.ipynb)
 
- 1:30 pm -  2:45 pm : special topic: git / github
+   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/master/04-python-matplotlib/matplotlib-basics.ipynb)
 
- 2:45 pm -  3:15 pm : break
 
- 3:15 pm -  5:00 pm : exercises
-```
+2. Matplotlib Exercises:
+
+   * Download the raw notebook: https://raw.githubusercontent.com/sbu-phy-ast-reu/reu-python-tutorial/master/04-python-matplotlib/matplotlib-exercises.ipynb
+
+   * [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/master?filepath=04-python-matplotlib%2Fmatplotlib-exercises.ipynb)
+
+   * [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/master/04-python-matplotlib/matplotlib-exercises.ipynb)
+
