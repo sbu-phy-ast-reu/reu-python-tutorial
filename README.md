@@ -15,3 +15,5 @@ are provided to run them via mybinder or google colab.
 
 5. [Numerical Analysis with SciPy](https://github.com/sbu-phy-ast-reu/reu-python-tutorial/tree/master/05-python-scipy)
 
+6. [Symbolic Math with SymPy](https://github.com/sbu-phy-ast-reu/reu-python-tutorial/tree/master/06-python-sympy)
+
