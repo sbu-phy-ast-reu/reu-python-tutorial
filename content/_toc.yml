@@ -2,6 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 
+- file: Introduction
+
 - file: 01-python-basics/README.md
   sections:
     - file: 01-python-basics/python-datatypes.ipynb
