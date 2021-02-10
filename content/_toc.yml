@@ -4,7 +4,7 @@
 
 - file: Introduction
 
-- file: 01-python-basics/README.md
+- file: 01-python-basics/python.md
   sections:
     - file: 01-python-basics/python-datatypes.ipynb
     - file: 01-python-basics/python-advanced-datatypes.ipynb
