@@ -3,4 +3,3 @@ matplotlib
 numpy
 sympy
 scipy
-basemap
