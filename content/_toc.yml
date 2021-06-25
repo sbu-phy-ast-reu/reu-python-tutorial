@@ -13,10 +13,10 @@
 
 - file: 02-python-functions-classes/README.md
   sections:
+    - file: 02-python-functions-classes/python-functions.ipynb
+    - file: 02-python-functions-classes/python-topic2-exercises1.ipynb
     - file: 02-python-functions-classes/python-classes.ipynb
     - file: 02-python-functions-classes/python-conventions.ipynb
-    - file: 02-python-functions-classes/python-topic2-exercises1.ipynb
-    - file: 02-python-functions-classes/python-functions.ipynb
     - file: 02-python-functions-classes/python-modules.ipynb
     - file: 02-python-functions-classes/python-topic2-exercises2.ipynb
 
