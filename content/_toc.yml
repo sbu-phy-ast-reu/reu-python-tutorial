@@ -1,43 +1,34 @@
-# Table of content
-# Learn more at https://jupyterbook.org/customize/toc.html
-#
-
-- file: Introduction
-
+format: jb-article
+root: Introduction
+sections:
 - file: 01-python-basics/python.md
   sections:
-    - file: 01-python-basics/python-datatypes.ipynb
-    - file: 01-python-basics/python-advanced-datatypes.ipynb
-    - file: 01-python-basics/python-controlflow.ipynb
-    - file: 01-python-basics/python-topic1-exercises1.ipynb
-
+  - file: 01-python-basics/python-datatypes.ipynb
+  - file: 01-python-basics/python-advanced-datatypes.ipynb
+  - file: 01-python-basics/python-controlflow.ipynb
+  - file: 01-python-basics/python-topic1-exercises1.ipynb
 - file: 02-python-functions-classes/README.md
   sections:
-    - file: 02-python-functions-classes/python-functions.ipynb
-    - file: 02-python-functions-classes/python-topic2-exercises1.ipynb
-    - file: 02-python-functions-classes/python-classes.ipynb
-    - file: 02-python-functions-classes/python-conventions.ipynb
-    - file: 02-python-functions-classes/python-modules.ipynb
-    - file: 02-python-functions-classes/python-topic2-exercises2.ipynb
-
+  - file: 02-python-functions-classes/python-functions.ipynb
+  - file: 02-python-functions-classes/python-topic2-exercises1.ipynb
+  - file: 02-python-functions-classes/python-classes.ipynb
+  - file: 02-python-functions-classes/python-conventions.ipynb
+  - file: 02-python-functions-classes/python-modules.ipynb
+  - file: 02-python-functions-classes/python-topic2-exercises2.ipynb
 - file: 03-python-numpy/README.md
   sections:
-    - file: 03-python-numpy/numpy-basics.ipynb
-    - file: 03-python-numpy/numpy-intermediate.ipynb
-    - file: 03-python-numpy/numpy-exercises.ipynb
-
+  - file: 03-python-numpy/numpy-basics.ipynb
+  - file: 03-python-numpy/numpy-intermediate.ipynb
+  - file: 03-python-numpy/numpy-exercises.ipynb
 - file: 04-python-matplotlib/README.md
   sections:
-    - file: 04-python-matplotlib/matplotlib-basics.ipynb
-    - file: 04-python-matplotlib/matplotlib-exercises.ipynb
-
+  - file: 04-python-matplotlib/matplotlib-basics.ipynb
+  - file: 04-python-matplotlib/matplotlib-exercises.ipynb
 - file: 05-python-scipy/README.md
   sections:
-    - file: 05-python-scipy/scipy-basics.ipynb
-    - file: 05-python-scipy/scipy-exercises.ipynb
-
+  - file: 05-python-scipy/scipy-basics.ipynb
+  - file: 05-python-scipy/scipy-exercises.ipynb
 - file: 06-python-sympy/README.md
   sections:
   - file: 06-python-sympy/sympy-basics.ipynb
   - file: 06-python-sympy/sympy-exercises.ipynb
-
