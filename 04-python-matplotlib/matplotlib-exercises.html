@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>matplotlib exercises &#8212; REU Tutorial on Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to SciPy" href="../05-python-scipy/README.html" />
+    <link rel="prev" title="matplotlib" href="matplotlib-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">REU Tutorial on Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Python REU tutorial
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-python-basics/python.html">
+   Introduction to Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-datatypes.html">
+     Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-advanced-datatypes.html">
+     Advanced Datatypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-controlflow.html">
+     Control Flow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-topic1-exercises1.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02-python-functions-classes/README.html">
+   Python Functions and Classes
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-topic2-exercises1.html">
+     Practicing Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-classes.html">
+     Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-conventions.html">
+     Naming conventions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02-python-functions-classes/python-topic2-exercises2.html">
+     Practicing Classes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-python-numpy/README.html">
+   Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-basics.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-intermediate.html">
+     More NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-exercises.html">
+     NumPy exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Introduction to Matplotlib
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="matplotlib-basics.html">
+     matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     matplotlib exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-python-scipy/README.html">
+   Introduction to SciPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-python-scipy/scipy-basics.html">
+     SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-python-scipy/scipy-exercises.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-python-sympy/README.html">
+   Introduction to SymPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-python-sympy/sympy-basics.html">
+     SymPy examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-python-sympy/sympy-exercises.html">
+     SymPy Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04-python-matplotlib/matplotlib-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial/issues/new?title=Issue%20on%20page%20%2F04-python-matplotlib/matplotlib-exercises.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/main?urlpath=tree/content/04-python-matplotlib/matplotlib-exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/main/content/04-python-matplotlib/matplotlib-exercises.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q1-planetary-positions">
+   Q1: planetary positions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2-drawing-a-circle">
+   Q2: drawing a circle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q3-circles-circles-circles">
+   Q3: Circles, circles, circles…
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q4-climate">
+   Q4: Climate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q5-subplots">
+   Q5: subplots
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q6-frequent-words-plotting">
+   Q6: frequent words plotting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-file-and-create-the-dictionaty-word-count">
+     6.1 Read the file and create the dictionaty {‘word’:count}
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-25-most-frequent-words">
+     2. Plot 25 most frequent words
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="matplotlib-exercises">
+<h1>matplotlib exercises<a class="headerlink" href="#matplotlib-exercises" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="q1-planetary-positions">
+<h2>Q1: planetary positions<a class="headerlink" href="#q1-planetary-positions" title="Permalink to this headline">¶</a></h2>
+<p>The distances of the planets from the Sun (technically, their semi-major axes) are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.39</span><span class="p">,</span> <span class="mf">0.72</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.52</span><span class="p">,</span> <span class="mf">5.20</span><span class="p">,</span> <span class="mf">9.54</span><span class="p">,</span> <span class="mf">19.22</span><span class="p">,</span> <span class="mf">30.06</span><span class="p">,</span> <span class="mf">39.48</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are in units where the Earth-Sun distance is 1 (astronomical units).</p>
+<p>The corresponding periods of their orbits (how long they take to go once around the Sun) are, in years</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.24</span><span class="p">,</span> <span class="mf">0.62</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.88</span><span class="p">,</span> <span class="mf">11.86</span><span class="p">,</span> <span class="mf">29.46</span><span class="p">,</span> <span class="mf">84.01</span><span class="p">,</span> <span class="mf">164.8</span><span class="p">,</span> <span class="mf">248.09</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, the names of the planets corresponding to these are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mercury&quot;</span><span class="p">,</span> <span class="s2">&quot;Venus&quot;</span><span class="p">,</span> <span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Jupiter&quot;</span><span class="p">,</span> <span class="s2">&quot;Saturn&quot;</span><span class="p">,</span> 
+         <span class="s2">&quot;Uranus&quot;</span><span class="p">,</span> <span class="s2">&quot;Neptune&quot;</span><span class="p">,</span> <span class="s2">&quot;Pluto&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(technically, pluto isn’t a planet anymore, but we still love it :)</p>
+<ul class="simple">
+<li><p>Plot as points, the periods vs. distances for each planet on a log-log plot.</p></li>
+<li><p>Write the name of the planet next to the point for that planet on the plot</p></li>
+</ul>
+</div>
+<div class="section" id="q2-drawing-a-circle">
+<h2>Q2: drawing a circle<a class="headerlink" href="#q2-drawing-a-circle" title="Permalink to this headline">¶</a></h2>
+<p>For an angle <span class="math notranslate nohighlight">\(\theta\)</span> in the range <span class="math notranslate nohighlight">\(\theta \in [0, 2\pi]\)</span>, the polar equations of a circle of radius <span class="math notranslate nohighlight">\(R\)</span> are:</p>
+<div class="math notranslate nohighlight">
+\[
+x = R\cos(\theta)
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+y = R\sin(\theta)
+\]</div>
+<p>We want to draw a circle.</p>
+<ul class="simple">
+<li><p>Create an array to hold the theta values—the more we use, the smoother the circle will be</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> arrays from <code class="docutils literal notranslate"><span class="pre">theta</span></code> for your choice of <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p>Plot <code class="docutils literal notranslate"><span class="pre">y</span></code> vs. <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+</ul>
+<p>Now, look up the matplotlib <code class="docutils literal notranslate"><span class="pre">fill()</span></code> function, and draw a circle filled in with a solid color.</p>
+</div>
+<div class="section" id="q3-circles-circles-circles">
+<h2>Q3: Circles, circles, circles…<a class="headerlink" href="#q3-circles-circles-circles" title="Permalink to this headline">¶</a></h2>
+<p>Generalize your circle drawing commands to produce a function,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">draw_circle</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>that draws the circle.  Here, <code class="docutils literal notranslate"><span class="pre">(x0,</span> <span class="pre">y0)</span></code> is the center of the circle, <code class="docutils literal notranslate"><span class="pre">R</span></code> is the radius, and <code class="docutils literal notranslate"><span class="pre">color</span></code> is the color of the circle.</p>
+<p>Now randomly draw 10 circles at different locations, with random radii, and random colors on the same plot.</p>
+</div>
+<div class="section" id="q4-climate">
+<h2>Q4: Climate<a class="headerlink" href="#q4-climate" title="Permalink to this headline">¶</a></h2>
+<p>Download the data file of global surface air temperature averages from here:
+<a class="reference external" href="https://raw.githubusercontent.com/sbu-python-summer/python-tutorial/master/day-4/nasa-giss.txt">https://raw.githubusercontent.com/sbu-python-summer/python-tutorial/master/day-4/nasa-giss.txt</a></p>
+<p>(this data comes from: <a class="reference external" href="https://data.giss.nasa.gov/gistemp/graphs/">https://data.giss.nasa.gov/gistemp/graphs/</a>)</p>
+<p>There are 3 columns here: the year, the temperature change, and a smoothed representation of the temperature change.</p>
+<ul class="simple">
+<li><p>Read in this data using <code class="docutils literal notranslate"><span class="pre">np.loadtxt()</span></code>.</p></li>
+<li><p>Plot as a line the smoothed representation of the temperature changes.</p></li>
+<li><p>Plot as points the temperature change (no smoothing).  Color the points blue if they are &lt; 0 and color them red if they are &gt;= 0</p></li>
+</ul>
+<p>You might find the NumPy <code class="docutils literal notranslate"><span class="pre">where()</span></code> function useful.</p>
+</div>
+<div class="section" id="q5-subplots">
+<h2>Q5: subplots<a class="headerlink" href="#q5-subplots" title="Permalink to this headline">¶</a></h2>
+<p>matplotlib has a number of ways to create multiple axes in a figure – look at <code class="docutils literal notranslate"><span class="pre">plt.subplot()</span></code> (<a class="reference external" href="http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot">http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.subplot</a>)</p>
+<p>Create an <code class="docutils literal notranslate"><span class="pre">x</span></code> array using NumPy with a number of points, spanning from <span class="math notranslate nohighlight">\([0, 2\pi]\)</span>.</p>
+<p>Create 3 axes vertically, and do the following:</p>
+<ul>
+<li><p>Define a new numpy array <code class="docutils literal notranslate"><span class="pre">f</span></code> initialized to a function of your choice.</p></li>
+<li><p>Plot f in the top axes</p></li>
+<li><p>Compute a numerical derivative of <code class="docutils literal notranslate"><span class="pre">f</span></code>,</p>
+<div class="math notranslate nohighlight">
+\[ f' = \frac{f_{i+1} - f_i}{\Delta x}\]</div>
+</li>
+</ul>
+<p>and plot this in the middle axes</p>
+<ul class="simple">
+<li><p>Do this again, this time on <span class="math notranslate nohighlight">\(f'\)</span> to compute the second derivative and plot that in the bottom axes</p></li>
+</ul>
+</div>
+<div class="section" id="q6-frequent-words-plotting">
+<h2>Q6: frequent words plotting<a class="headerlink" href="#q6-frequent-words-plotting" title="Permalink to this headline">¶</a></h2>
+<p>In this exercise, we will read the file with the transcription of <em>Star Trek TOS, Shore Leave</em> and calculate the amount of time each word was found. We will then plot the 25 most frequent words and label the plot.</p>
+<div class="section" id="read-the-file-and-create-the-dictionaty-word-count">
+<h3>6.1 Read the file and create the dictionaty {‘word’:count}<a class="headerlink" href="#read-the-file-and-create-the-dictionaty-word-count" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Open the <code class="docutils literal notranslate"><span class="pre">shore_leave.txt</span></code></p></li>
+<li><p>Create the dictionary of the form {‘word’:count}, where <code class="docutils literal notranslate"><span class="pre">count</span></code> shows the amount of times the word was found in the text. Remember to get rid of the punctuation (“.” and “,”) and to ensure that all words are lowercase</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;shore_leave.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-25-most-frequent-words">
+<h3>2. Plot 25 most frequent words<a class="headerlink" href="#plot-25-most-frequent-words" title="Permalink to this headline">¶</a></h3>
+<p>Plot a labelled bar chart of the most frequent 25 words with their frequencies.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./04-python-matplotlib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="matplotlib-basics.html" title="previous page">matplotlib</a>
+    <a class='right-next' id="next-link" href="../05-python-scipy/README.html" title="next page">Introduction to SciPy</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://zingale.github.io">Michael Zingale</a><br/>
+        
+          <div class="extra_footer">
+            <p>
+&copy; 2021; CC-BY-NC-SA 4.0
+<p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

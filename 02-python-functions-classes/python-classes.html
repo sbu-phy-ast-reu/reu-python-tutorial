@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes &#8212; REU Tutorial on Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Naming conventions" href="python-conventions.html" />
+    <link rel="prev" title="Practicing Functions" href="python-topic2-exercises1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">REU Tutorial on Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduction.html">
+   Python REU tutorial
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01-python-basics/python.html">
+   Introduction to Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-datatypes.html">
+     Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-advanced-datatypes.html">
+     Advanced Datatypes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-controlflow.html">
+     Control Flow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01-python-basics/python-topic1-exercises1.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   Python Functions and Classes
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-functions.html">
+     Functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-topic2-exercises1.html">
+     Practicing Functions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Classes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-conventions.html">
+     Naming conventions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-modules.html">
+     Modules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="python-topic2-exercises2.html">
+     Practicing Classes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03-python-numpy/README.html">
+   Introduction to NumPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-basics.html">
+     NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-intermediate.html">
+     More NumPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03-python-numpy/numpy-exercises.html">
+     NumPy exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04-python-matplotlib/README.html">
+   Introduction to Matplotlib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-python-matplotlib/matplotlib-basics.html">
+     matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04-python-matplotlib/matplotlib-exercises.html">
+     matplotlib exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05-python-scipy/README.html">
+   Introduction to SciPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-python-scipy/scipy-basics.html">
+     SciPy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05-python-scipy/scipy-exercises.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06-python-sympy/README.html">
+   Introduction to SymPy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-python-sympy/sympy-basics.html">
+     SymPy examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06-python-sympy/sympy-exercises.html">
+     SymPy Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/02-python-functions-classes/python-classes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial/issues/new?title=Issue%20on%20page%20%2F02-python-functions-classes/python-classes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/main?urlpath=tree/content/02-python-functions-classes/python-classes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/main/content/02-python-functions-classes/python-classes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#more-useful-class">
+   More useful class
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-cards">
+   Playing Cards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deck-of-cards">
+   Deck of Cards
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operators">
+   Operators
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#span-class-fa-fa-star-span-vectors-example">
+   <span class="fa fa-star">
+   </span>
+   Vectors Example
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="classes">
+<h1>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h1>
+<p>Classes are the fundamental concept for object oriented programming.  A class defines a data type with both data and functions that can operate on the data.  An object is an instance of a class.  Each object will have its own namespace (separate from other instances of the class and other functions, etc. in your program).</p>
+<p>We use the dot operator, <code class="docutils literal notranslate"><span class="pre">.</span></code>, to access members of the class (data or functions).  We’ve already been doing this a lot, strings, ints, lists, … are all objects in python.</p>
+<p>simplest example: just a container (like a struct in C)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Container</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now create an instance of our class <code class="docutils literal notranslate"><span class="pre">Container</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Container</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>__main__.Container
+</pre></div>
+</div>
+</div>
+</div>
+<p>We didn’t define any data that lives, in <code class="docutils literal notranslate"><span class="pre">Container</span></code>, but we can add it after the fact</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">a</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">a</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">Container</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">xyz</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span><span class="o">.</span><span class="n">uvw</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">xyz</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">uvw</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 2 3
+1 2
+</pre></div>
+</div>
+</div>
+</div>
+<p>notice that you don’t have to declare what variables are members of the class ahead of time (although, usually that’s good practice).</p>
+<div class="section" id="more-useful-class">
+<h2>More useful class<a class="headerlink" href="#more-useful-class" title="Permalink to this headline">¶</a></h2>
+<p>Here’s a class that holds some student info</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grade</span> <span class="o">=</span> <span class="n">grade</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s create a bunch of them, stored in a list</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;fry&quot;</span><span class="p">,</span> <span class="s2">&quot;F-&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;leela&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;zoidberg&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;hubert&quot;</span><span class="p">,</span> <span class="s2">&quot;C+&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;bender&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;calculon&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;amy&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;hermes&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;scruffy&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;flexo&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;morbo&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;hypnotoad&quot;</span><span class="p">,</span> <span class="s2">&quot;A+&quot;</span><span class="p">))</span>
+<span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Student</span><span class="p">(</span><span class="s2">&quot;zapp&quot;</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info"><h3><span class="fa fa-flash"></span> Quick Exercise:</h3>
+<p>Loop over the students in the <code class="docutils literal notranslate"><span class="pre">students</span></code> list and print out the name and grade of each student, one per line.</p>
+</div><p>We can use list comprehensions with our list of objects.  For example, let’s find all the students who have A’s</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">As</span> <span class="o">=</span> <span class="p">[</span><span class="n">q</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">students</span> <span class="k">if</span> <span class="n">q</span><span class="o">.</span><span class="n">grade</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)]</span>
+<span class="n">As</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;leela&#39;, &#39;amy&#39;, &#39;hermes&#39;, &#39;hypnotoad&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="playing-cards">
+<h2>Playing Cards<a class="headerlink" href="#playing-cards" title="Permalink to this headline">¶</a></h2>
+<p>here’s a more complicated class that represents a playing card.  Notice that we are using unicode to represent the suits.</p>
+<p>unicode support in python is also one of the major differences between python 2 and 3.  In python 3, every string is unicode.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Card</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">suit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">suit</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">suit</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;invalid suit, setting to 1&quot;</span><span class="p">)</span>
+            <span class="n">suit</span> <span class="o">=</span> <span class="mi">1</span>
+            
+        <span class="bp">self</span><span class="o">.</span><span class="n">suit</span> <span class="o">=</span> <span class="n">suit</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">rank</span>
+        
+
+    <span class="k">def</span> <span class="nf">value</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; we want things order primarily by rank then suit &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">suit</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">14</span>
+    
+    <span class="c1"># we include this to allow for comparisons with &lt; and &gt; between cards </span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">()</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="fm">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">hash</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">suit</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">suits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;</span><span class="se">\u2660</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># spade</span>
+                 <span class="s2">&quot;</span><span class="se">\u2665</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># heart</span>
+                 <span class="s2">&quot;</span><span class="se">\u2666</span><span class="s2">&quot;</span><span class="p">,</span>  <span class="c1"># diamond</span>
+                 <span class="s2">&quot;</span><span class="se">\u2663</span><span class="s2">&quot;</span><span class="p">]</span>  <span class="c1"># club</span>
+        
+        <span class="n">r</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rank</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">11</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;J&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">12</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;Q&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">13</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;K&quot;</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rank</span> <span class="o">==</span> <span class="mi">14</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="s2">&quot;A&quot;</span>
+                
+        <span class="k">return</span> <span class="n">r</span> <span class="o">+</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="n">suits</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">suit</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>        
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you instantiate a class, the <code class="docutils literal notranslate"><span class="pre">__init__</span></code> method is called.  Note that all method in a class always have “<code class="docutils literal notranslate"><span class="pre">self</span></code>” as the first argument – this refers to the object that is invoking the method.</p>
+<p>we can create a card easily.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">=</span> <span class="n">Card</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can pass arguments to <code class="docutils literal notranslate"><span class="pre">__init__</span></code> in when we setup the class:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">Card</span><span class="p">(</span><span class="n">suit</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Once we have our object, we can access any of the functions in the class using the <code class="docutils literal notranslate"><span class="pre">dot</span></code> operator</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3</span> <span class="o">=</span> <span class="n">Card</span><span class="p">(</span><span class="n">suit</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>invalid suit, setting to 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">__str__</span></code> method converts the object into a string that can be printed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2:♠
+K:♠
+</pre></div>
+</div>
+</div>
+</div>
+<p>the value method assigns a value to the object that can be used in comparisons, and the <code class="docutils literal notranslate"><span class="pre">__lt__</span></code> method is what does the actual comparing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">&gt;</span> <span class="n">c2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c1</span> <span class="o">&lt;</span> <span class="n">c2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that not every operator is defined for our class, so, for instance, we cannot add two cards together:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">61818</span><span class="n">d23e61f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">c1</span> <span class="o">+</span> <span class="n">c2</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;Card&#39; and &#39;Card&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are two other special functions we define here, <code class="docutils literal notranslate"><span class="pre">__eq__()</span></code> is used for testing equivalence (e.g. <code class="docutils literal notranslate"><span class="pre">c1</span> <span class="pre">==</span> <span class="pre">c2</span></code>) and <code class="docutils literal notranslate"><span class="pre">__hash__()</span></code> converts the object into a unique integer that is used by the <code class="docutils literal notranslate"><span class="pre">set()</span></code> class to find unique objects.</p>
+<div class="alert alert-block alert-info"><h3><span class="fa fa-flash"></span> Quick Exercise:</h3>
+<ul class="simple">
+<li><p>Create a “hand” corresponding to a straight (5 cards of any suit, but in sequence of rank)</p></li>
+<li><p>Create another hand corresponding to a flush (5 cards all of the same suit, of any rank)</p></li>
+<li><p>Finally create a hand with one of the cards duplicated—this should not be allowed in a standard deck of cards.  How would you check for this?</p></li>
+</ul>
+</div></div>
+<div class="section" id="deck-of-cards">
+<h2>Deck of Cards<a class="headerlink" href="#deck-of-cards" title="Permalink to this headline">¶</a></h2>
+<p>classes can include other classes as data objects—here’s a deck of cards.  Note that we are using the python random module here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">class</span> <span class="nc">Deck</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; the deck is a collection of cards &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">nsuits</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nranks</span> <span class="o">=</span> <span class="mi">13</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">minrank</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxrank</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">minrank</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">nranks</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cards</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">rank</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">minrank</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">maxrank</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">suit</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nsuits</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Card</span><span class="p">(</span><span class="n">rank</span><span class="o">=</span><span class="n">rank</span><span class="p">,</span> <span class="n">suit</span><span class="o">=</span><span class="n">suit</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_cards</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">hand</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+            <span class="n">hand</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">hand</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cards</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span>
+        <span class="k">return</span> <span class="n">string</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>let’s create a deck, shuffle, and deal a hand (for a poker game)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydeck</span> <span class="o">=</span> <span class="n">Deck</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mydeck</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mydeck</span><span class="o">.</span><span class="n">cards</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>notice that there is no error handling in this class.  The get_cards() will deal cards from the deck, removing them in the process.  Eventually we’ll run out of cards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mydeck</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+
+<span class="n">hand</span> <span class="o">=</span> <span class="n">mydeck</span><span class="o">.</span><span class="n">get_cards</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">hand</span><span class="p">):</span> <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="operators">
+<h2>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>We can define operations like <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">-</span></code> that work on our objects.  Here’s a simple example of currency—we keep track of the country and the amount</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Currency</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; a simple class to hold foreign currency &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s2">&quot;US&quot;</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">amount</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country</span> <span class="o">=</span> <span class="n">country</span>
+        
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Currency</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">country</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can now create some monetary amounts for different countries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d1</span> <span class="o">=</span> <span class="n">Currency</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;US&quot;</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">Currency</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;US&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d1</span> <span class="o">+</span> <span class="n">d2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info"><h3><span class="fa fa-flash"></span> Quick Exercise:</h3>
+<p>As written, our Currency class has a bug—it does not check whether the amounts are in the same country before adding.  Modify the <code class="docutils literal notranslate"><span class="pre">__add__</span></code> method to first check if the countries are the same.  If they are, return the new <code class="docutils literal notranslate"><span class="pre">Currency</span></code> object with the sum, otherwise, return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</div></div>
+<div class="section" id="span-class-fa-fa-star-span-vectors-example">
+<h2><span class="fa fa-star"></span> Vectors Example<a class="headerlink" href="#span-class-fa-fa-star-span-vectors-example" title="Permalink to this headline">¶</a></h2>
+<p>Here we write a class to represent 2-d vectors.  Vectors have a direction and a magnitude.  We can represent them as a pair of numbers, representing the x and y lengths.  We’ll use a tuple internally for this</p>
+<p>We want our class to do all the basic operations we do with vectors: add them, multiply by a scalar, cross product, dot product, return the magnitude, etc.</p>
+<p>We’ll use the math module to provide some basic functions we might need (like sqrt)</p>
+<p>This example will show us how to overload the standard operations in python.  Here’s a list of the builtin methods:</p>
+<p><a class="reference external" href="https://docs.python.org/3/reference/datamodel.html">https://docs.python.org/3/reference/datamodel.html</a></p>
+<p>To make it really clear what’s being called when, I’ve added prints in each of the functions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Vector</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; a general two-dimensional vector &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __init__&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __str__&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="s2">&quot;(</span><span class="si">{}</span><span class="s2"> î + </span><span class="si">{}</span><span class="s2"> ĵ)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __repr__&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="s2">&quot;Vector(</span><span class="si">{}</span><span class="s2">, </span><span class="si">{}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __add__&quot;</span><span class="p">)</span>        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Vector</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># it doesn&#39;t make sense to add anything but two vectors</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we don&#39;t know how to add a </span><span class="si">{}</span><span class="s2"> to a Vector&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __sub__&quot;</span><span class="p">)</span>        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Vector</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">other</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># it doesn&#39;t make sense to add anything but two vectors</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we don&#39;t know how to add a </span><span class="si">{}</span><span class="s2"> to a Vector&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">other</span><span class="p">)))</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __mul__&quot;</span><span class="p">)</span>        
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="c1"># scalar multiplication changes the magnitude</span>
+            <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="n">other</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">other</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;we don&#39;t know how to multiply two Vectors&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="fm">__matmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __matmul__&quot;</span><span class="p">)</span>
+        <span class="c1"># a dot product</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">Vector</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;matrix multiplication not defined&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">def</span> <span class="fm">__rmul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __rmul__&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__mul__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __truediv__&quot;</span><span class="p">)</span>        
+        <span class="c1"># we only know how to multiply by a scalar</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">/</span><span class="n">other</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">/</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __abs__&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;in __neg__&quot;</span><span class="p">)</span>        
+        <span class="k">return</span> <span class="n">Vector</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># a vector cross product -- we return the magnitude, since it will</span>
+        <span class="c1"># be in the z-direction, but we are only 2-d </span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="o">*</span><span class="n">other</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is a basic class that provides two methods <code class="docutils literal notranslate"><span class="pre">__str__</span></code> and <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> to show a representation of it.  There was some discussion of this on slack.  These two functions provide a readable version of our object.</p>
+<p>The convection is what <code class="docutils literal notranslate"><span class="pre">__str__</span></code> is human readable while <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> should be a form that can be used to recreate the object (e.g., via <code class="docutils literal notranslate"><span class="pre">eval()</span></code>).  See:</p>
+<p><a class="reference external" href="http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python">http://stackoverflow.com/questions/1436703/difference-between-str-and-repr-in-python</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">v</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vectors have a length, and we’ll use the <code class="docutils literal notranslate"><span class="pre">abs()</span></code> builtin to provide the magnitude.  For a vector:
+$<span class="math notranslate nohighlight">\(
+\vec{v} = \alpha \hat{i} + \beta \hat{j}
+\)</span><span class="math notranslate nohighlight">\(
+we have
+\)</span><span class="math notranslate nohighlight">\(
+|\vec{v}| = \sqrt{\alpha^2 + \beta^2}
+\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s look at mathematical operations on vectors now.  We want to be able to add and subtract two vectors as well as multiply and divide by a scalar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">Vector</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">v</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">-</span> <span class="n">v</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It doesn’t make sense to add a scalar to a vector, so we didn’t implement this – what happens?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">+</span> <span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now multiplication.  It makes sense to multiply by a scalar, but there are multiple ways to define multiplication of two vectors.</p>
+<p>Note that python provides both a <code class="docutils literal notranslate"><span class="pre">__mul__</span></code> and a <code class="docutils literal notranslate"><span class="pre">__rmul__</span></code> function to define what happens when we multiply a vector by a quantity and what happens when we multiply something else by a vector.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">*</span><span class="mf">2.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span><span class="o">*</span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and division: <code class="docutils literal notranslate"><span class="pre">__truediv__</span></code> is the python 3 way of division <code class="docutils literal notranslate"><span class="pre">/</span></code>, while <code class="docutils literal notranslate"><span class="pre">__floordiv__</span></code> is the old python 2 way, also enabled via <code class="docutils literal notranslate"><span class="pre">//</span></code>.</p>
+<p>Dividing a scalar by a vector doesn’t make sense:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">/</span><span class="mf">5.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mf">5.0</span><span class="o">/</span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python 3.5 introduced a new matrix multiplication operator, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> – we’ll use this to implement a dot product between two vectors:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">@</span> <span class="n">v</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For a cross product, we don’t have an obvious operator, so we’ll use a function.  For 2-d vectors, this will result in a scalar</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, negation is a separate operation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./02-python-functions-classes"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="python-topic2-exercises1.html" title="previous page">Practicing Functions</a>
+    <a class='right-next' id="next-link" href="python-conventions.html" title="next page">Naming conventions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By <a href="https://zingale.github.io">Michael Zingale</a><br/>
+        
+          <div class="extra_footer">
+            <p>
+&copy; 2021; CC-BY-NC-SA 4.0
+<p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
