@@ -1,7 +1,7 @@
 # Python REU Tutorial
 ## Summer 2022
 
-![xkcd](01-python/python.png)
+![xkcd](01-python-basics/python.png)
 
 (from https://xkcd.com)
 
