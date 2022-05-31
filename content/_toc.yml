@@ -3,6 +3,7 @@ root: Introduction
 chapters:
   - file: 01-python-basics/python
     sections:
+    - file: 01-python-basics/jupyter
     - file: 01-python-basics/python-datatypes
     - file: 01-python-basics/python-advanced-datatypes
     - file: 01-python-basics/python-controlflow
