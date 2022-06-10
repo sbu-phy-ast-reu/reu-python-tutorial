@@ -54,3 +54,21 @@ Perhaps most importantly, and why we are here:
 
 > Python has been widely adopted in the scientific community.
 
+
+## Using the MathLab (Math S=435)
+
+We will be working on the machines in the Stony Brook MathLab (Math
+S-435).  These machines have python installed, but not Jupyter.
+
+You should install Jupyter as:
+
+```bash
+pip3 install jupyterlab --user
+```
+
+Unfortunately, this does not put it in your path, so you need to start
+Jupyter from the commandline as:
+
+```bash
+~/.local/bin/jupyter lab
+```
