@@ -58,11 +58,14 @@ Perhaps most importantly, and why we are here:
 ## Using the MathLab (Math S=435)
 
 We will be working on the machines in the Stony Brook MathLab (Math
-S-435).  These machines have python installed, but not Jupyter.
+S-435).  These machines have python installed, but not Jupyter.  Unfortunately,
+the python version there is no longer supported, so we also need to install
+some older packages to ensure that we don't depend on newer python features.
 
 You should install Jupyter as:
 
 ```bash
+pip3 install setuptools_scm==6.4.2 --user
 pip3 install jupyterlab --user
 ```
 
