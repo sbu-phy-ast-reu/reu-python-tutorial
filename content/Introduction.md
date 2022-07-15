@@ -55,10 +55,10 @@ Perhaps most importantly, and why we are here:
 > Python has been widely adopted in the scientific community.
 
 
-## Using the MathLab (Math S=435)
+## Using the MathLab (Math S-235)
 
 We will be working on the machines in the Stony Brook MathLab (Math
-S-435).  These machines have python installed, but not Jupyter.  Unfortunately,
+S-235).  These machines have python installed, but not Jupyter.  Unfortunately,
 the python version there is no longer supported, so we also need to install
 some older packages to ensure that we don't depend on newer python features.
 
