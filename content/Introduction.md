@@ -1,5 +1,5 @@
 # Python REU Tutorial
-## Summer 2022
+## Summer 2023
 
 ![xkcd](01-python-basics/python.png)
 
