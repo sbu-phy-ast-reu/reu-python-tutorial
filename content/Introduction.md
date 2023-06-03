@@ -75,3 +75,11 @@ Jupyter from the commandline as:
 ```bash
 ~/.local/bin/jupyter lab
 ```
+
+## Using your own machine
+
+You are encouraged to use your own laptop.  The easiest way to install
+python and all the dependencies we'll need is to install the [Anaconda
+python](https://www.anaconda.com/) distribution.
+
+This is freely available for Linux, Mac, and Windows.
