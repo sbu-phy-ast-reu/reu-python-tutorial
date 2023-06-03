@@ -1,6 +1,7 @@
 format: jb-book
 root: Introduction
 chapters:
+  - file: using
   - file: 01-python-basics/python
     sections:
     - file: 01-python-basics/jupyter
@@ -13,7 +14,6 @@ chapters:
     - file: 02-python-functions-classes/python-functions
     - file: 02-python-functions-classes/python-topic2-exercises1
     - file: 02-python-functions-classes/python-classes
-    - file: 02-python-functions-classes/python-conventions
     - file: 02-python-functions-classes/python-modules
     - file: 02-python-functions-classes/python-topic2-exercises2
   - file: 03-python-numpy/README
