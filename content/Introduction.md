@@ -66,7 +66,7 @@ You should install Jupyter as:
 
 ```bash
 pip3 install setuptools_scm==6.4.2 --user
-pip3 install "jupyterlab<4" --user
+pip3 install "jupyterlab<4" jupyterlab-server==2.19.0 ipykernel==6.21.1 --user
 ```
 
 Unfortunately, this does not put it in your path, so you need to start
