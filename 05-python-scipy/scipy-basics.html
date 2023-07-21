@@ -1,0 +1,1976 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>SciPy &#8212; REU Tutorial on Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05-python-scipy/scipy-basics';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Exercises" href="scipy-exercises.html" />
+    <link rel="prev" title="Introduction to SciPy" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../Introduction.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">REU Tutorial on Python</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Introduction.html">
+                    Python REU Tutorial
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using These Notes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01-python-basics/python.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01-python-basics/jupyter.html">Jupyter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-python-basics/python-datatypes.html">Basic Python Datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-python-basics/python-advanced-datatypes.html">Advanced Datatypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-python-basics/python-controlflow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01-python-basics/python-topic1-exercises1.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02-python-functions-classes/README.html">Python Functions and Classes</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02-python-functions-classes/python-functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python-functions-classes/python-topic2-exercises1.html">Practicing Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python-functions-classes/python-classes.html">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python-functions-classes/python-modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02-python-functions-classes/python-topic2-exercises2.html">Practicing Classes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03-python-numpy/README.html">Introduction to NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03-python-numpy/numpy-basics.html">NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-python-numpy/numpy-intermediate.html">More NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03-python-numpy/numpy-exercises.html">NumPy exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../04-python-matplotlib/README.html">Introduction to Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../04-python-matplotlib/matplotlib-basics.html">matplotlib</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../04-python-matplotlib/matplotlib-exercises.html">matplotlib exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">Introduction to SciPy</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">SciPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scipy-exercises.html">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../06-python-sympy/README.html">Introduction to SymPy</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../06-python-sympy/sympy-examples.html">SymPy examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06-python-sympy/sympy-exercises.html">SymPy Exercises</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/sbu-phy-ast-reu/reu-python-tutorial/main?urlpath=tree/content/05-python-scipy/scipy-basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/sbu-phy-ast-reu/reu-python-tutorial/blob/main/content/05-python-scipy/scipy-basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/sbu-phy-ast-reu/reu-python-tutorial/issues/new?title=Issue%20on%20page%20%2F05-python-scipy/scipy-basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/05-python-scipy/scipy-basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SciPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-methods">Numerical Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-a-sampled-function">integration of a sampled function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-finding">Root Finding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odes">ODEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-variate-root-find">Multi-variate root find</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting">Fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-linear-least-squares">general linear least squares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nonlinear-example">a nonlinear example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ffts">FFTs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-frequency-filter">A frequency filter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">Linear Algebra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-manipulations-of-matrices">general manipulations of matrices</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scipy">
+<h1>SciPy<a class="headerlink" href="#scipy" title="Permalink to this heading">#</a></h1>
+<p>SciPy is a collection of numerical algorithms with python interfaces.  In many cases, these interfaces are wrappers around standard numerical libraries that have been developed in the community and are used with other languages.  Usually detailed references are available to explain the implementation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-warning">
+<p>There are many subpackages.  Generally, you load the subpackages separately, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    
+ <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">optimize</span>
+    
+    
+</pre></div>
+</div>
+<p>then you have access to the methods in those namespaces</p>
+</div><section id="numerical-methods">
+<h2>Numerical Methods<a class="headerlink" href="#numerical-methods" title="Permalink to this heading">#</a></h2>
+<p>One thing to keep in mind – all numerical methods have strengths and weaknesses, and make assumptions.  You should always do some research into the method to understand what it is doing.</p>
+<p>It is also always a good idea to run a new method on some test where you know the answer, to make sure it is behaving as expected.</p>
+</section>
+<section id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h2>
+<p>we’ll do some integrals of the form</p>
+<div class="math notranslate nohighlight">
+\[I = \int_a^b f(x) dx\]</div>
+<p>We can imagine two situations:</p>
+<ul class="simple">
+<li><p>our function <span class="math notranslate nohighlight">\(f(x)\)</span> is given by an analytic expression.  This gives us the freedom to pick our integration points, and in general can allow us to optimize our result and get high accuracy</p></li>
+<li><p>our function <span class="math notranslate nohighlight">\(f(x)\)</span> is defined on at a set of (possibly regular spaced) points.</p></li>
+</ul>
+<p>In numerical analysis, the term <em>quadrature</em> is used to describe any integration method that represents the integral as the weighted sum of a discrete number of points.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">integrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>quad is the basic integrator for a general (not sampled) function.  It uses a general-interface from the Fortran package QUADPACK (QAGS or QAGI).  It will return the integral in an interval and an estimate of the error in the approximation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+2.3058791671639882e-09
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can ask for a more accurate integral by setting the absolute and relative tolerances, <code class="docutils literal notranslate"><span class="pre">epsabs</span></code> and <code class="docutils literal notranslate"><span class="pre">epsrel</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">epsabs</span><span class="o">=</span><span class="mf">1.e-14</span><span class="p">,</span> <span class="n">epsrel</span><span class="o">=</span><span class="mf">1.e-14</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+3.4878684980086318e-15
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function quad in module scipy.integrate._quadpack_py:
+
+quad(func, a, b, args=(), full_output=0, epsabs=1.49e-08, epsrel=1.49e-08, limit=50, points=None, weight=None, wvar=None, wopts=None, maxp1=50, limlst=50, complex_func=False)
+    Compute a definite integral.
+    
+    Integrate func from `a` to `b` (possibly infinite interval) using a
+    technique from the Fortran library QUADPACK.
+    
+    Parameters
+    ----------
+    func : {function, scipy.LowLevelCallable}
+        A Python function or method to integrate. If `func` takes many
+        arguments, it is integrated along the axis corresponding to the
+        first argument.
+    
+        If the user desires improved integration performance, then `f` may
+        be a `scipy.LowLevelCallable` with one of the signatures::
+    
+            double func(double x)
+            double func(double x, void *user_data)
+            double func(int n, double *xx)
+            double func(int n, double *xx, void *user_data)
+    
+        The ``user_data`` is the data contained in the `scipy.LowLevelCallable`.
+        In the call forms with ``xx``,  ``n`` is the length of the ``xx``
+        array which contains ``xx[0] == x`` and the rest of the items are
+        numbers contained in the ``args`` argument of quad.
+    
+        In addition, certain ctypes call signatures are supported for
+        backward compatibility, but those should not be used in new code.
+    a : float
+        Lower limit of integration (use -numpy.inf for -infinity).
+    b : float
+        Upper limit of integration (use numpy.inf for +infinity).
+    args : tuple, optional
+        Extra arguments to pass to `func`.
+    full_output : int, optional
+        Non-zero to return a dictionary of integration information.
+        If non-zero, warning messages are also suppressed and the
+        message is appended to the output tuple.
+    complex_func : bool, optional
+        Indicate if the function&#39;s (`func`) return type is real
+        (``complex_func=False``: default) or complex (``complex_func=True``).
+        In both cases, the function&#39;s argument is real.
+        If full_output is also non-zero, the `infodict`, `message`, and
+        `explain` for the real and complex components are returned in
+        a dictionary with keys &quot;real output&quot; and &quot;imag output&quot;.
+    
+    Returns
+    -------
+    y : float
+        The integral of func from `a` to `b`.
+    abserr : float
+        An estimate of the absolute error in the result.
+    infodict : dict
+        A dictionary containing additional information.
+    message
+        A convergence message.
+    explain
+        Appended only with &#39;cos&#39; or &#39;sin&#39; weighting and infinite
+        integration limits, it contains an explanation of the codes in
+        infodict[&#39;ierlst&#39;]
+    
+    Other Parameters
+    ----------------
+    epsabs : float or int, optional
+        Absolute error tolerance. Default is 1.49e-8. `quad` tries to obtain
+        an accuracy of ``abs(i-result) &lt;= max(epsabs, epsrel*abs(i))``
+        where ``i`` = integral of `func` from `a` to `b`, and ``result`` is the
+        numerical approximation. See `epsrel` below.
+    epsrel : float or int, optional
+        Relative error tolerance. Default is 1.49e-8.
+        If ``epsabs &lt;= 0``, `epsrel` must be greater than both 5e-29
+        and ``50 * (machine epsilon)``. See `epsabs` above.
+    limit : float or int, optional
+        An upper bound on the number of subintervals used in the adaptive
+        algorithm.
+    points : (sequence of floats,ints), optional
+        A sequence of break points in the bounded integration interval
+        where local difficulties of the integrand may occur (e.g.,
+        singularities, discontinuities). The sequence does not have
+        to be sorted. Note that this option cannot be used in conjunction
+        with ``weight``.
+    weight : float or int, optional
+        String indicating weighting function. Full explanation for this
+        and the remaining arguments can be found below.
+    wvar : optional
+        Variables for use with weighting functions.
+    wopts : optional
+        Optional input for reusing Chebyshev moments.
+    maxp1 : float or int, optional
+        An upper bound on the number of Chebyshev moments.
+    limlst : int, optional
+        Upper bound on the number of cycles (&gt;=3) for use with a sinusoidal
+        weighting and an infinite end-point.
+    
+    See Also
+    --------
+    dblquad : double integral
+    tplquad : triple integral
+    nquad : n-dimensional integrals (uses `quad` recursively)
+    fixed_quad : fixed-order Gaussian quadrature
+    quadrature : adaptive Gaussian quadrature
+    odeint : ODE integrator
+    ode : ODE integrator
+    simpson : integrator for sampled data
+    romb : integrator for sampled data
+    scipy.special : for coefficients and roots of orthogonal polynomials
+    
+    Notes
+    -----
+    For valid results, the integral must converge; behavior for divergent
+    integrals is not guaranteed.
+    
+    **Extra information for quad() inputs and outputs**
+    
+    If full_output is non-zero, then the third output argument
+    (infodict) is a dictionary with entries as tabulated below. For
+    infinite limits, the range is transformed to (0,1) and the
+    optional outputs are given with respect to this transformed range.
+    Let M be the input argument limit and let K be infodict[&#39;last&#39;].
+    The entries are:
+    
+    &#39;neval&#39;
+        The number of function evaluations.
+    &#39;last&#39;
+        The number, K, of subintervals produced in the subdivision process.
+    &#39;alist&#39;
+        A rank-1 array of length M, the first K elements of which are the
+        left end points of the subintervals in the partition of the
+        integration range.
+    &#39;blist&#39;
+        A rank-1 array of length M, the first K elements of which are the
+        right end points of the subintervals.
+    &#39;rlist&#39;
+        A rank-1 array of length M, the first K elements of which are the
+        integral approximations on the subintervals.
+    &#39;elist&#39;
+        A rank-1 array of length M, the first K elements of which are the
+        moduli of the absolute error estimates on the subintervals.
+    &#39;iord&#39;
+        A rank-1 integer array of length M, the first L elements of
+        which are pointers to the error estimates over the subintervals
+        with ``L=K`` if ``K&lt;=M/2+2`` or ``L=M+1-K`` otherwise. Let I be the
+        sequence ``infodict[&#39;iord&#39;]`` and let E be the sequence
+        ``infodict[&#39;elist&#39;]``.  Then ``E[I[1]], ..., E[I[L]]`` forms a
+        decreasing sequence.
+    
+    If the input argument points is provided (i.e., it is not None),
+    the following additional outputs are placed in the output
+    dictionary. Assume the points sequence is of length P.
+    
+    &#39;pts&#39;
+        A rank-1 array of length P+2 containing the integration limits
+        and the break points of the intervals in ascending order.
+        This is an array giving the subintervals over which integration
+        will occur.
+    &#39;level&#39;
+        A rank-1 integer array of length M (=limit), containing the
+        subdivision levels of the subintervals, i.e., if (aa,bb) is a
+        subinterval of ``(pts[1], pts[2])`` where ``pts[0]`` and ``pts[2]``
+        are adjacent elements of ``infodict[&#39;pts&#39;]``, then (aa,bb) has level l
+        if ``|bb-aa| = |pts[2]-pts[1]| * 2**(-l)``.
+    &#39;ndin&#39;
+        A rank-1 integer array of length P+2. After the first integration
+        over the intervals (pts[1], pts[2]), the error estimates over some
+        of the intervals may have been increased artificially in order to
+        put their subdivision forward. This array has ones in slots
+        corresponding to the subintervals for which this happens.
+    
+    **Weighting the integrand**
+    
+    The input variables, *weight* and *wvar*, are used to weight the
+    integrand by a select list of functions. Different integration
+    methods are used to compute the integral with these weighting
+    functions, and these do not support specifying break points. The
+    possible values of weight and the corresponding weighting functions are.
+    
+    ==========  ===================================   =====================
+    ``weight``  Weight function used                  ``wvar``
+    ==========  ===================================   =====================
+    &#39;cos&#39;       cos(w*x)                              wvar = w
+    &#39;sin&#39;       sin(w*x)                              wvar = w
+    &#39;alg&#39;       g(x) = ((x-a)**alpha)*((b-x)**beta)   wvar = (alpha, beta)
+    &#39;alg-loga&#39;  g(x)*log(x-a)                         wvar = (alpha, beta)
+    &#39;alg-logb&#39;  g(x)*log(b-x)                         wvar = (alpha, beta)
+    &#39;alg-log&#39;   g(x)*log(x-a)*log(b-x)                wvar = (alpha, beta)
+    &#39;cauchy&#39;    1/(x-c)                               wvar = c
+    ==========  ===================================   =====================
+    
+    wvar holds the parameter w, (alpha, beta), or c depending on the weight
+    selected. In these expressions, a and b are the integration limits.
+    
+    For the &#39;cos&#39; and &#39;sin&#39; weighting, additional inputs and outputs are
+    available.
+    
+    For finite integration limits, the integration is performed using a
+    Clenshaw-Curtis method which uses Chebyshev moments. For repeated
+    calculations, these moments are saved in the output dictionary:
+    
+    &#39;momcom&#39;
+        The maximum level of Chebyshev moments that have been computed,
+        i.e., if ``M_c`` is ``infodict[&#39;momcom&#39;]`` then the moments have been
+        computed for intervals of length ``|b-a| * 2**(-l)``,
+        ``l=0,1,...,M_c``.
+    &#39;nnlog&#39;
+        A rank-1 integer array of length M(=limit), containing the
+        subdivision levels of the subintervals, i.e., an element of this
+        array is equal to l if the corresponding subinterval is
+        ``|b-a|* 2**(-l)``.
+    &#39;chebmo&#39;
+        A rank-2 array of shape (25, maxp1) containing the computed
+        Chebyshev moments. These can be passed on to an integration
+        over the same interval by passing this array as the second
+        element of the sequence wopts and passing infodict[&#39;momcom&#39;] as
+        the first element.
+    
+    If one of the integration limits is infinite, then a Fourier integral is
+    computed (assuming w neq 0). If full_output is 1 and a numerical error
+    is encountered, besides the error message attached to the output tuple,
+    a dictionary is also appended to the output tuple which translates the
+    error codes in the array ``info[&#39;ierlst&#39;]`` to English messages. The
+    output information dictionary contains the following entries instead of
+    &#39;last&#39;, &#39;alist&#39;, &#39;blist&#39;, &#39;rlist&#39;, and &#39;elist&#39;:
+    
+    &#39;lst&#39;
+        The number of subintervals needed for the integration (call it ``K_f``).
+    &#39;rslst&#39;
+        A rank-1 array of length M_f=limlst, whose first ``K_f`` elements
+        contain the integral contribution over the interval
+        ``(a+(k-1)c, a+kc)`` where ``c = (2*floor(|w|) + 1) * pi / |w|``
+        and ``k=1,2,...,K_f``.
+    &#39;erlst&#39;
+        A rank-1 array of length ``M_f`` containing the error estimate
+        corresponding to the interval in the same position in
+        ``infodict[&#39;rslist&#39;]``.
+    &#39;ierlst&#39;
+        A rank-1 integer array of length ``M_f`` containing an error flag
+        corresponding to the interval in the same position in
+        ``infodict[&#39;rslist&#39;]``.  See the explanation dictionary (last entry
+        in the output tuple) for the meaning of the codes.
+    
+    
+    **Details of QUADPACK level routines**
+    
+    `quad` calls routines from the FORTRAN library QUADPACK. This section
+    provides details on the conditions for each routine to be called and a
+    short description of each routine. The routine called depends on
+    `weight`, `points` and the integration limits `a` and `b`.
+    
+    ================  ==============  ==========  =====================
+    QUADPACK routine  `weight`        `points`    infinite bounds
+    ================  ==============  ==========  =====================
+    qagse             None            No          No
+    qagie             None            No          Yes
+    qagpe             None            Yes         No
+    qawoe             &#39;sin&#39;, &#39;cos&#39;    No          No
+    qawfe             &#39;sin&#39;, &#39;cos&#39;    No          either `a` or `b`
+    qawse             &#39;alg*&#39;          No          No
+    qawce             &#39;cauchy&#39;        No          No
+    ================  ==============  ==========  =====================
+    
+    The following provides a short desciption from [1]_ for each
+    routine.
+    
+    qagse
+        is an integrator based on globally adaptive interval
+        subdivision in connection with extrapolation, which will
+        eliminate the effects of integrand singularities of
+        several types.
+    qagie
+        handles integration over infinite intervals. The infinite range is
+        mapped onto a finite interval and subsequently the same strategy as
+        in ``QAGS`` is applied.
+    qagpe
+        serves the same purposes as QAGS, but also allows the
+        user to provide explicit information about the location
+        and type of trouble-spots i.e. the abscissae of internal
+        singularities, discontinuities and other difficulties of
+        the integrand function.
+    qawoe
+        is an integrator for the evaluation of
+        :math:`\int^b_a \cos(\omega x)f(x)dx` or
+        :math:`\int^b_a \sin(\omega x)f(x)dx`
+        over a finite interval [a,b], where :math:`\omega` and :math:`f`
+        are specified by the user. The rule evaluation component is based
+        on the modified Clenshaw-Curtis technique
+    
+        An adaptive subdivision scheme is used in connection
+        with an extrapolation procedure, which is a modification
+        of that in ``QAGS`` and allows the algorithm to deal with
+        singularities in :math:`f(x)`.
+    qawfe
+        calculates the Fourier transform
+        :math:`\int^\infty_a \cos(\omega x)f(x)dx` or
+        :math:`\int^\infty_a \sin(\omega x)f(x)dx`
+        for user-provided :math:`\omega` and :math:`f`. The procedure of
+        ``QAWO`` is applied on successive finite intervals, and convergence
+        acceleration by means of the :math:`\varepsilon`-algorithm is applied
+        to the series of integral approximations.
+    qawse
+        approximate :math:`\int^b_a w(x)f(x)dx`, with :math:`a &lt; b` where
+        :math:`w(x) = (x-a)^{\alpha}(b-x)^{\beta}v(x)` with
+        :math:`\alpha,\beta &gt; -1`, where :math:`v(x)` may be one of the
+        following functions: :math:`1`, :math:`\log(x-a)`, :math:`\log(b-x)`,
+        :math:`\log(x-a)\log(b-x)`.
+    
+        The user specifies :math:`\alpha`, :math:`\beta` and the type of the
+        function :math:`v`. A globally adaptive subdivision strategy is
+        applied, with modified Clenshaw-Curtis integration on those
+        subintervals which contain `a` or `b`.
+    qawce
+        compute :math:`\int^b_a f(x) / (x-c)dx` where the integral must be
+        interpreted as a Cauchy principal value integral, for user specified
+        :math:`c` and :math:`f`. The strategy is globally adaptive. Modified
+        Clenshaw-Curtis integration is used on those intervals containing the
+        point :math:`x = c`.
+    
+    **Integration of Complex Function of a Real Variable**
+    
+    A complex valued function, :math:`f`, of a real variable can be written as
+    :math:`f = g + ih`.  Similarly, the integral of :math:`f` can be
+    written as
+    
+    .. math::
+        \int_a^b f(x) dx = \int_a^b g(x) dx + i\int_a^b h(x) dx
+    
+    assuming that the integrals of :math:`g` and :math:`h` exist
+    over the inteval :math:`[a,b]` [2]_. Therefore, ``quad`` integrates
+    complex-valued functions by integrating the real and imaginary components
+    separately.
+    
+    
+    References
+    ----------
+    
+    .. [1] Piessens, Robert; de Doncker-Kapenga, Elise;
+           Überhuber, Christoph W.; Kahaner, David (1983).
+           QUADPACK: A subroutine package for automatic integration.
+           Springer-Verlag.
+           ISBN 978-3-540-12553-2.
+    
+    .. [2] McCullough, Thomas; Phillips, Keith (1973).
+           Foundations of Analysis in the Complex Plane.
+           Holt Rinehart Winston.
+           ISBN 0-03-086370-8
+    
+    Examples
+    --------
+    Calculate :math:`\int^4_0 x^2 dx` and compare with an analytic result
+    
+    &gt;&gt;&gt; from scipy import integrate
+    &gt;&gt;&gt; import numpy as np
+    &gt;&gt;&gt; x2 = lambda x: x**2
+    &gt;&gt;&gt; integrate.quad(x2, 0, 4)
+    (21.333333333333332, 2.3684757858670003e-13)
+    &gt;&gt;&gt; print(4**3 / 3.)  # analytical result
+    21.3333333333
+    
+    Calculate :math:`\int^\infty_0 e^{-x} dx`
+    
+    &gt;&gt;&gt; invexp = lambda x: np.exp(-x)
+    &gt;&gt;&gt; integrate.quad(invexp, 0, np.inf)
+    (1.0, 5.842605999138044e-11)
+    
+    Calculate :math:`\int^1_0 a x \,dx` for :math:`a = 1, 3`
+    
+    &gt;&gt;&gt; f = lambda x, a: a*x
+    &gt;&gt;&gt; y, err = integrate.quad(f, 0, 1, args=(1,))
+    &gt;&gt;&gt; y
+    0.5
+    &gt;&gt;&gt; y, err = integrate.quad(f, 0, 1, args=(3,))
+    &gt;&gt;&gt; y
+    1.5
+    
+    Calculate :math:`\int^1_0 x^2 + y^2 dx` with ctypes, holding
+    y parameter as 1::
+    
+        testlib.c =&gt;
+            double func(int n, double args[n]){
+                return args[0]*args[0] + args[1]*args[1];}
+        compile to library testlib.*
+    
+    ::
+    
+       from scipy import integrate
+       import ctypes
+       lib = ctypes.CDLL(&#39;/home/.../testlib.*&#39;) #use absolute path
+       lib.func.restype = ctypes.c_double
+       lib.func.argtypes = (ctypes.c_int,ctypes.c_double)
+       integrate.quad(lib.func,0,1,(1))
+       #(1.3333333333333333, 1.4802973661668752e-14)
+       print((1.0**3/3.0 + 1.0) - (0.0**3/3.0 + 0.0)) #Analytic result
+       # 1.3333333333333333
+    
+    Be aware that pulse shapes and other sharp features as compared to the
+    size of the integration interval may not be integrated correctly using
+    this method. A simplified example of this limitation is integrating a
+    y-axis reflected step function with many zero values within the integrals
+    bounds.
+    
+    &gt;&gt;&gt; y = lambda x: 1 if x&lt;=0 else 0
+    &gt;&gt;&gt; integrate.quad(y, -1, 1)
+    (1.0, 1.1102230246251565e-14)
+    &gt;&gt;&gt; integrate.quad(y, -1, 100)
+    (1.0000000002199108, 1.0189464580163188e-08)
+    &gt;&gt;&gt; integrate.quad(y, -1, 10000)
+    (0.0, 0.0)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>sometimes our integrand function takes optional arguments</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.8451240256511698 2.0484991765669867e-14
+</pre></div>
+</div>
+</div>
+</div>
+<p>numpy defines the inf quantity which can be used in the integration limits.  We can integrate a Gaussian (we know the answer is <span class="math notranslate nohighlight">\(\sqrt{\pi}\)</span>).</p>
+<p>Note: behind the scenes, what the integration function does is do a variable transform like: <span class="math notranslate nohighlight">\(t = 1/x\)</span>.  This works when one limit is <span class="math notranslate nohighlight">\(\infty\)</span>, giving</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b f(x) dx = \int_{1/b}^{1/a} \frac{1}{t^2} f\left (\frac{1}{t}\right) dt\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.7724538509055159 1.420263678027086e-08
+</pre></div>
+</div>
+</div>
+</div>
+<section id="integration-of-a-sampled-function">
+<h3>integration of a sampled function<a class="headerlink" href="#integration-of-a-sampled-function" title="Permalink to this heading">#</a></h3>
+<p>Here we integrate a function that is defined only at a sequece of points.  Let’s compute</p>
+<div class="math notranslate nohighlight">
+\[I = \int_0^{2\pi} f(x_i) dx\]</div>
+<p>with <span class="math notranslate nohighlight">\(x_i = 0, \ldots, 2\pi\)</span> defined at <span class="math notranslate nohighlight">\(N\)</span> points</p>
+<p>Let’s compute this with</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \sin^2(x)\]</div>
+<p>defines at <span class="math notranslate nohighlight">\(N\)</span> points.
+In this case, we know that <span class="math notranslate nohighlight">\(I = \pi\)</span> is the correct answer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="n">I</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">simps</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.141592653589793
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info"><h3><span class="fa fa-flash"></span> Quick Exercise:</h3>
+<p>We know the answer for this intergral, so we can look at how the error changes with the number of samples.  Vary <span class="math notranslate nohighlight">\(N\)</span> and plot the absolute value of the error in the solution vs. N (the error for this integral is: <span class="math notranslate nohighlight">\(\epsilon = |I - \pi|\)</span>).  How does it behave?</p>
+</section>
+</section>
+<section id="root-finding">
+<h2>Root Finding<a class="headerlink" href="#root-finding" title="Permalink to this heading">#</a></h2>
+<p>Often we need to find a value of a variable that zeros a function – this is <em>root finding</em>.  Sometimes, this is a multidimensional problem.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">brentq()</span></code> routine offers a very robust method for find roots from a scalar function.  You do need to provide an interval that bounds the root.</p>
+<p>Consider the function:</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{x e^x}{e^x - 1} - 5\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">optimize</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># this is the non-linear equation that comes up in deriving Wien&#39;s law for radiation</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">5.0</span><span class="p">)</span>
+
+<span class="n">root</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">converged</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.965114231744286
+True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">root</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="n">root</span><span class="p">)]),</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fad8cf74d30&gt;]
+</pre></div>
+</div>
+<img alt="../_images/44cf7c708286a2816ee821abd55622d795afb8b8fe0cc2bfd600fdbe34c1b1d0.png" src="../_images/44cf7c708286a2816ee821abd55622d795afb8b8fe0cc2bfd600fdbe34c1b1d0.png" />
+</div>
+</div>
+</section>
+<section id="odes">
+<h2>ODEs<a class="headerlink" href="#odes" title="Permalink to this heading">#</a></h2>
+<p>Many methods exist for integrating ordinary differential equations.  Most will want you to write your ODEs as a system of first order equations.</p>
+<p>This system of ODEs is the Lorenz system:</p>
+<div class="math notranslate nohighlight">
+\[\frac{dx}{dt} = \sigma (y - x)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dy}{dt} = rx - y - xz\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{dz}{dt} = xy - bz\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># system parameters</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">8.</span><span class="o">/</span><span class="mf">3.</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mf">28.0</span>
+
+<span class="k">def</span> <span class="nf">rhs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">X</span>
+    <span class="n">xdot</span> <span class="o">=</span> <span class="n">sigma</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span>
+    <span class="n">ydot</span> <span class="o">=</span> <span class="n">r</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="o">*</span><span class="n">z</span>
+    <span class="n">zdot</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">-</span> <span class="n">b</span><span class="o">*</span><span class="n">z</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xdot</span><span class="p">,</span> <span class="n">ydot</span><span class="p">,</span> <span class="n">zdot</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ll use the <code class="docutils literal notranslate"><span class="pre">solve_ivp</span></code> function to solve this.  The function below is a wrapper to it our problem, taking the initial conditions, time interval at which we want the solution stored (<code class="docutils literal notranslate"><span class="pre">dt</span></code>) and maximum time to integrate to (<code class="docutils literal notranslate"><span class="pre">tmax</span></code>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ode_integrate</span><span class="p">(</span><span class="n">X0</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">tmax</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; integrate using the VODE method, storing the solution each dt &quot;&quot;&quot;</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">integrate</span><span class="o">.</span><span class="n">solve_ivp</span><span class="p">(</span><span class="n">rhs</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">),</span> <span class="n">X0</span><span class="p">,</span>
+                            <span class="n">method</span><span class="o">=</span><span class="s2">&quot;RK45&quot;</span><span class="p">,</span> <span class="n">dense_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># get the solution at intermediate times</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    
+    <span class="n">Xs</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sol</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ts</span><span class="p">,</span> <span class="n">Xs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s integrate the system and plot the solution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">ode_integrate</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">axes3d</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">6.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1536c970299dd419f4b8e671431d09fd5fe94d285bf9635ec8149206af0cdebd.png" src="../_images/1536c970299dd419f4b8e671431d09fd5fe94d285bf9635ec8149206af0cdebd.png" />
+</div>
+</div>
+<div class="alert alert-block alert-info"><h3><span class="fa fa-flash"></span> Quick Exercise:</h3>
+<p>This problem was what lead to the discovery of chaos in non-linear systems — widely different solutions arising from small differences in the initial conditions.</p>
+<p>To see this, start with two points that are very close together (e.g., add 1.e-8 to the initial x position) and integrate both sets of initial conditions and make plots showing <span class="math notranslate nohighlight">\(x\)</span> vs. <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(y\)</span> vs. t, and <span class="math notranslate nohighlight">\(z\)</span> vs. t.</p>
+</div><section id="multi-variate-root-find">
+<h3>Multi-variate root find<a class="headerlink" href="#multi-variate-root-find" title="Permalink to this heading">#</a></h3>
+<p>The steady states of this system correspond to:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}{\bf f}({\bf x}) = 
+\left ( \begin{array}{c}
+\sigma (y -x) \\ 
+rx - y -xz \\
+xy - bz \\
+\end{array}\right )
+= 0\end{split}\]</div>
+<p>We want to find the value <span class="math notranslate nohighlight">\({\bf x}\)</span> that zeros this vector function.  These methods usually require a Jacobian matrix, so we’ll construct that</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">jac</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[</span> <span class="p">[</span><span class="o">-</span><span class="n">sigma</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> 
+          <span class="p">[</span><span class="n">r</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+          <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="n">b</span><span class="p">]</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The optimize methods also will want a single function that returns the function and its Jacobian:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">rhs</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">x</span><span class="p">),</span> <span class="n">jac</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>we can find the steady points in this system by doing a multi-variate root find on the RHS vector.  We might need to vary out guess so that we find all of the roots.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol1</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="n">jac</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol1</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">sol2</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">],</span> <span class="n">jac</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol2</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">sol3</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">root</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.</span><span class="p">,</span> <span class="o">-</span><span class="mf">10.</span><span class="p">],</span> <span class="n">jac</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sol3</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. 0. 0.]
+[ 8.48528137  8.48528137 27.        ]
+[-8.48528137 -8.48528137 27.        ]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;projection&quot;</span><span class="p">:</span> <span class="s2">&quot;3d&quot;</span><span class="p">})</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">,:])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol1</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol1</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sol1</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol2</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol2</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sol2</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sol3</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">sol3</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">sol3</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;z&#39;)
+</pre></div>
+</div>
+<img alt="../_images/99b10785517e978d64cdc7b89c2ac6f86ee95ad4b6b0c3bdd472e0f2a9e55360.png" src="../_images/99b10785517e978d64cdc7b89c2ac6f86ee95ad4b6b0c3bdd472e0f2a9e55360.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="fitting">
+<h2>Fitting<a class="headerlink" href="#fitting" title="Permalink to this heading">#</a></h2>
+<p>Fitting is used to match a model to experimental data.  E.g. we have N points of <span class="math notranslate nohighlight">\((x_i, y_i)\)</span> with associated errors, <span class="math notranslate nohighlight">\(\sigma_i\)</span>, and we want to find a simple function that best represents the data.</p>
+<p>Usually this means that we will need to define a metric, often called the <em>residual</em>, for how well our function matches the data, and then minimize this residual.  Least-squares fitting is a popular formulation.</p>
+<p>We want to fit our data to a function <span class="math notranslate nohighlight">\(Y(x, \{a_j\})\)</span>, where <span class="math notranslate nohighlight">\(a_j\)</span> are model parameters we can adjust.  We want to find the optimal <span class="math notranslate nohighlight">\(a_j\)</span> to minimize the distance of <span class="math notranslate nohighlight">\(Y\)</span> from our data:</p>
+<div class="math notranslate nohighlight">
+\[\Delta_i = Y(x_i, \{a_j\}) - y_i\]</div>
+<p>Least-squares minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2(\{a_j\}) = \sum_{i=1}^N \left ( \frac{\Delta_i}{\sigma_i} \right )^2\]</div>
+<section id="general-linear-least-squares">
+<h3>general linear least squares<a class="headerlink" href="#general-linear-least-squares" title="Permalink to this heading">#</a></h3>
+<p>First we’ll make some experimental data (a quadratic with random fashion).  We use the <code class="docutils literal notranslate"><span class="pre">randn()</span></code> function to provide Gaussian normalized errors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">y_experiment2</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; return the experimental data in a quadratic + random fashion,                              </span>
+<span class="sd">        with a1, a2, a3 the coefficients of the quadratic and sigma is                             </span>
+<span class="sd">        the error.  This will be poorly matched to a linear fit for                                </span>
+<span class="sd">        a3 != 0 &quot;&quot;&quot;</span>
+
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># randn gives samples from the &quot;standard normal&quot; distribution                                  </span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="n">y</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a3</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">r</span>
+
+    <span class="k">return</span> <span class="n">y</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y_experiment2</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/0f5de8991bb970dcb0f8c1efe01bf8b1dc26cf52fa6cb7ca9713e55c5caaccd5.png" src="../_images/0f5de8991bb970dcb0f8c1efe01bf8b1dc26cf52fa6cb7ca9713e55c5caaccd5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resid</span><span class="p">(</span><span class="n">avec</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; the residual function -- this is what will be minimized by the</span>
+<span class="sd">        scipy.optimize.leastsq() routine.  avec is the parameters we</span>
+<span class="sd">        are optimizing -- they are packed in here, so we unpack to</span>
+<span class="sd">        begin.  (x, y) are the data points </span>
+
+<span class="sd">        scipy.optimize.leastsq() minimizes:</span>
+
+<span class="sd">           x = arg min(sum(func(y)**2,axis=0))</span>
+<span class="sd">                    y</span>
+
+<span class="sd">        so this should just be the distance from a point to the curve,</span>
+<span class="sd">        and it will square it and sum over the points</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">avec</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="p">(</span><span class="n">a0</span> <span class="o">+</span> <span class="n">a1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">a2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="n">sigma</span>
+
+
+<span class="c1"># initial guesses</span>
+<span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+
+<span class="n">afit</span><span class="p">,</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="p">[</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">afit</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">afit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">afit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">afit</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.24167878  1.53569965 -0.02000042]
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/a14068844d2b8a3e199a90cd191132bcd9d67d0b8dd4588290725670bd08d841.png" src="../_images/a14068844d2b8a3e199a90cd191132bcd9d67d0b8dd4588290725670bd08d841.png" />
+</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\chi^2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chisq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">resid</span><span class="p">(</span><span class="n">afit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sigma</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">normalization</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">afit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">chisq</span><span class="o">/</span><span class="n">normalization</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0420416797456296
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-nonlinear-example">
+<h3>a nonlinear example<a class="headerlink" href="#a-nonlinear-example" title="Permalink to this heading">#</a></h3>
+<p>our experiemental data – an exponential</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a0</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">/</span><span class="mf">3.</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">5.0</span>
+
+<span class="n">a0_orig</span><span class="p">,</span> <span class="n">a1_orig</span> <span class="o">=</span> <span class="n">a0</span><span class="p">,</span> <span class="n">a1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">a0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">sigma</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;_nolegend_&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/c86009a680ed32ca25f50b31d60a4379cf0e80733d52bdd938fba26c40415d29.png" src="../_images/c86009a680ed32ca25f50b31d60a4379cf0e80733d52bdd938fba26c40415d29.png" />
+</div>
+</div>
+<p>our function to minimize</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">resid</span><span class="p">(</span><span class="n">avec</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; the residual function -- this is what will be minimized by the                             </span>
+<span class="sd">        scipy.optimize.leastsq() routine.  avec is the parameters we                               </span>
+<span class="sd">        are optimizing -- they are packed in here, so we unpack to                                 </span>
+<span class="sd">        begin.  (x, y) are the data points                                                         </span>
+<span class="sd">                                                                                                   </span>
+<span class="sd">        scipy.optimize.leastsq() minimizes:                                                        </span>
+<span class="sd">                                                                                                   </span>
+<span class="sd">           x = arg min(sum(func(y)**2,axis=0))                                                     </span>
+<span class="sd">                    y                                                                              </span>
+<span class="sd">                                                                                                   </span>
+<span class="sd">        so this should just be the distance from a point to the curve,                             </span>
+<span class="sd">        and it will square it and sum over the points                                              </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="n">a0</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">avec</span>
+
+    <span class="c1"># note: if we wanted to deal with error bars, we would weight each                             </span>
+    <span class="c1"># residual accordingly                                                                         </span>
+    <span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">a0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a1</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+<span class="n">afit</span><span class="p">,</span> <span class="n">flag</span> <span class="o">=</span> <span class="n">optimize</span><span class="o">.</span><span class="n">leastsq</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span> <span class="p">[</span><span class="n">a0</span><span class="p">,</span> <span class="n">a1</span><span class="p">],</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">afit</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+[2.01845228 0.70111416]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">afit</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">afit</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">),</span>
+           <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$a_0 = $ </span><span class="si">%f</span><span class="s2">; $a_1 = $ </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">afit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">afit</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a0_orig</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">a1_orig</span><span class="o">*</span><span class="n">x</span><span class="p">),</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;original function&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">numpoints</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;_nolegend_&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ErrorbarContainer object of 3 artists&gt;
+</pre></div>
+</div>
+<img alt="../_images/edccbd5bb7f19a3a22cb11ad7bc6e8dd47ce2e46ebe864928c1e50d0ad8d3741.png" src="../_images/edccbd5bb7f19a3a22cb11ad7bc6e8dd47ce2e46ebe864928c1e50d0ad8d3741.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="ffts">
+<h2>FFTs<a class="headerlink" href="#ffts" title="Permalink to this heading">#</a></h2>
+<p>Fourier transforms convert a physical-space (or time series) representation of a function into frequency space.  This provides an equivalent representation of the data with a new view.</p>
+<p>The FFT and its inverse in NumPy use:</p>
+<div class="math notranslate nohighlight">
+\[F_k = \sum_{n=0}^{N-1} f_n e^{-2\pi i nk/N}\]</div>
+<div class="math notranslate nohighlight">
+\[f_n = \frac{1}{N} \sum_{k=0}^{N-1} F_k 
+   e^{2\pi i n k/N}\]</div>
+<p>Both NumPy and SciPy have FFT routines that are similar.  However, the NumPy version returns the data in a more convenient form.</p>
+<p>It’s always best to start with something you understand – let’s do a simple sine wave.  Since our function is real, we can use the rfft routines in NumPy – the understand that we are working with real data and they don’t return the negative frequency components.</p>
+<p>One important caveat – FFTs assume that you are periodic.  If you include both endpoints of the domain in the points that comprise your sample then you will not match this assumption.  Here we use endpoint=False with linspace()</p>
+<p>We’ll start by considering</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = \sin(2\pi f_0 x)\]</div>
+<p>Here f_0 is the <em>wavenumber</em> with units of 1 / length (or 1 / time if we were instead considering <span class="math notranslate nohighlight">\(f(t)\)</span>)</p>
+<p>The wavelength is the <span class="math notranslate nohighlight">\(1/f_0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">single_freq_sine</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+
+    <span class="c1"># a pure sine with no phase shift will result in pure imaginary                                         </span>
+    <span class="c1"># signal                                                                                                </span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+    <span class="c1"># we&#39;ll make our domain contain 10 wavelengths</span>
+    <span class="n">xmax</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">/</span><span class="n">f_0</span>
+    
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">npts</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">*</span><span class="n">xx</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make our life easier, we’ll define a function that plots all the stages of the FFT process</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_FFT</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+
+    <span class="n">npts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+
+    <span class="c1"># Forward transform: f(x) -&gt; F(k)                                                                       </span>
+    <span class="n">fk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="c1"># Normalization -- the &#39;2&#39; here comes from the fact that we are                                         </span>
+    <span class="c1"># neglecting the negative portion of the frequency space, since                                         </span>
+    <span class="c1"># the FFT of a real function contains redundant information, so                                         </span>
+    <span class="c1"># we are only dealing with 1/2 of the frequency space.                                                  </span>
+    <span class="c1">#                                                                                                       </span>
+    <span class="c1"># technically, we should only scale the 0 bin by N, since k=0 is                                        </span>
+    <span class="c1"># not duplicated -- we won&#39;t worry about that for these plots                                           </span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">npts</span>
+
+    <span class="n">fk</span> <span class="o">=</span> <span class="n">fk</span><span class="o">*</span><span class="n">norm</span>
+
+    <span class="n">fk_r</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">real</span>
+    <span class="n">fk_i</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">imag</span>
+
+    <span class="c1"># the fftfreq returns the postive and negative (and 0) frequencies                                      </span>
+    <span class="c1"># the newer versions of numpy (&gt;=1.8) have an rfftfreq() function                                       </span>
+    <span class="c1"># that really does what we want -- we&#39;ll use that here.                                                 </span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+
+    <span class="c1"># to make these dimensional, we need to divide by dx.  </span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">kfreq</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="n">dx</span>
+
+    <span class="c1"># Inverse transform: F(k) -&gt; f(x) -- without the normalization                                          </span>
+    <span class="n">fkinv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">fk</span><span class="o">/</span><span class="n">norm</span><span class="p">)</span>
+
+    <span class="c1"># plots</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">411</span><span class="p">)</span>
+    
+    <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;f(x)&quot;</span><span class="p">)</span>
+
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">412</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kfreq</span><span class="p">,</span> <span class="n">fk_r</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Re($\mathcal</span><span class="si">{F}</span><span class="s2">$)&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kfreq</span><span class="p">,</span> <span class="n">fk_i</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;Im($\mathcal</span><span class="si">{F}</span><span class="s2">$)&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\nu_k$&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;F(k)&quot;</span><span class="p">)</span>
+
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;small&quot;</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">413</span><span class="p">)</span>
+
+    <span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kfreq</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fk</span><span class="p">))</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\nu_k$&quot;</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;|F(k)|&quot;</span><span class="p">)</span>
+
+    <span class="n">ax4</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">414</span><span class="p">)</span>
+
+    <span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">fkinv</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\nu_k$&quot;</span><span class="p">)</span>
+    <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;inverse F(k)&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npts</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">single_freq_sine</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<span class="n">plot_FFT</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3be341edd2fef1af65a5c4a21ea6ba8a73deeda3459d2a012e69a67a6a4c225a.png" src="../_images/3be341edd2fef1af65a5c4a21ea6ba8a73deeda3459d2a012e69a67a6a4c225a.png" />
+</div>
+</div>
+<p>A cosine is shifted in phase by pi/2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">single_freq_cosine</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+
+    <span class="c1"># a pure cosine with no phase shift will result in pure real                                            </span>
+    <span class="c1"># signal                                                                                                </span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+    <span class="n">xmax</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">/</span><span class="n">f_0</span>
+
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">npts</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">*</span><span class="n">xx</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">single_freq_cosine</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<span class="n">plot_FFT</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/18b8f4d307118777f5caad28c0e9a765031ab40ac2b5254175de9a5bb2bdcfbd.png" src="../_images/18b8f4d307118777f5caad28c0e9a765031ab40ac2b5254175de9a5bb2bdcfbd.png" />
+</div>
+</div>
+<p>Now let’s look at a sine with a pi/4 phase shift</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">single_freq_sine_plus_shift</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+
+    <span class="c1"># a pure sine with no phase shift will result in pure imaginary                                         </span>
+    <span class="c1"># signal                                                                                                </span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+    <span class="n">xmax</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">/</span><span class="n">f_0</span>
+
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">npts</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">*</span><span class="n">xx</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">single_freq_sine_plus_shift</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+<span class="n">plot_FFT</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f1c55e6f9ab3a02807b8defda0e2e629d826a9074279e74ebb9fe12c98c7b92a.png" src="../_images/f1c55e6f9ab3a02807b8defda0e2e629d826a9074279e74ebb9fe12c98c7b92a.png" />
+</div>
+</div>
+<section id="a-frequency-filter">
+<h3>A frequency filter<a class="headerlink" href="#a-frequency-filter" title="Permalink to this heading">#</a></h3>
+<p>we’ll setup a simple two-frequency sine wave and filter a component</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">two_freq_sine</span><span class="p">(</span><span class="n">npts</span><span class="p">):</span>
+
+    <span class="c1"># a pure sine with no phase shift will result in pure imaginary             </span>
+    <span class="c1"># signal                                                                    </span>
+    <span class="n">f_0</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">f_1</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+    <span class="n">xmax</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">/</span><span class="n">f_0</span>
+
+    <span class="c1"># we call with endpoint=False -- if we include the endpoint, then for       </span>
+    <span class="c1"># a periodic function, the first and last point are identical -- this       </span>
+    <span class="c1"># shows up as a signal in the FFT.                                          </span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">npts</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">*</span><span class="n">xx</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_1</span><span class="o">*</span><span class="n">xx</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">xx</span><span class="p">,</span> <span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">npts</span> <span class="o">=</span> <span class="mi">256</span>
+
+<span class="n">xx</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">two_freq_sine</span><span class="p">(</span><span class="n">npts</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fad8856e200&gt;]
+</pre></div>
+</div>
+<img alt="../_images/cffb04df04f28b37b541b867cfdb2aae430878ad1d22613492ad337d60061fe2.png" src="../_images/cffb04df04f28b37b541b867cfdb2aae430878ad1d22613492ad337d60061fe2.png" />
+</div>
+</div>
+<p>we’ll take the transform: f(x) -&gt; F(k)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalization factor: the 2 here comes from the fact that we neglect          </span>
+<span class="c1"># the negative portion of frequency space because our input function            </span>
+<span class="c1"># is real                                                                       </span>
+<span class="n">norm</span> <span class="o">=</span> <span class="mf">2.0</span><span class="o">/</span><span class="n">npts</span>
+<span class="n">fk</span> <span class="o">=</span> <span class="n">norm</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+<span class="n">ofk_r</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">real</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ofk_i</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">imag</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># get the frequencies</span>
+<span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfftfreq</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xx</span><span class="p">))</span>
+
+<span class="c1"># normalize using dx</span>
+<span class="c1"># This makes the frequencies essentially multiples of 1/dx</span>
+<span class="n">kfreq</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kfreq</span><span class="p">,</span> <span class="n">fk</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;real&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kfreq</span><span class="p">,</span> <span class="n">fk</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;imaginary&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fad8893a080&gt;
+</pre></div>
+</div>
+<img alt="../_images/8bb3530cd9f7ab64fc4807fb91d74845dfc842c1919b12667cdce2b61a1fb38a.png" src="../_images/8bb3530cd9f7ab64fc4807fb91d74845dfc842c1919b12667cdce2b61a1fb38a.png" />
+</div>
+</div>
+<p>Filter out the higher frequencies</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fk</span><span class="p">[</span><span class="n">kfreq</span> <span class="o">&gt;</span> <span class="mf">0.4</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="c1"># element 0 of fk is the DC component                                           </span>
+<span class="n">fk_r</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">real</span>
+<span class="n">fk_i</span> <span class="o">=</span> <span class="n">fk</span><span class="o">.</span><span class="n">imag</span>
+
+
+<span class="c1"># Inverse transform: F(k) -&gt; f(x)                                               </span>
+<span class="n">fkinv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">fk</span><span class="o">/</span><span class="n">norm</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">fkinv</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fad88a83160&gt;]
+</pre></div>
+</div>
+<img alt="../_images/44c9e03168fbf99b6a46eaae86ce88384b1aebb9f1700efb0cc0b91f9f820990.png" src="../_images/44c9e03168fbf99b6a46eaae86ce88384b1aebb9f1700efb0cc0b91f9f820990.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="linear-algebra">
+<h2>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this heading">#</a></h2>
+<section id="general-manipulations-of-matrices">
+<h3>general manipulations of matrices<a class="headerlink" href="#general-manipulations-of-matrices" title="Permalink to this heading">#</a></h3>
+<p>you can use regular NumPy arrays and the <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> matrix multiplication operator</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 2.]
+ [3. 4.]]
+[[1. 3.]
+ [2. 4.]]
+[[1. 3.]
+ [2. 4.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ainv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ainv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-2.   1. ]
+ [ 1.5 -0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">@</span> <span class="n">ainv</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.0000000e+00, 0.0000000e+00],
+       [8.8817842e-16, 1.0000000e+00]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>the eye() function will generate an identity matrix (as will the identity())</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1. 0.]
+ [0. 1.]]
+[[1. 0.]
+ [0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>we can solve Ax = b</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-3.  4.]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./05-python-scipy"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to SciPy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="scipy-exercises.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-methods">Numerical Methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration">Integration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-of-a-sampled-function">integration of a sampled function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#root-finding">Root Finding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#odes">ODEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-variate-root-find">Multi-variate root find</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting">Fitting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-linear-least-squares">general linear least squares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nonlinear-example">a nonlinear example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ffts">FFTs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-frequency-filter">A frequency filter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-algebra">Linear Algebra</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-manipulations-of-matrices">general manipulations of matrices</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://zingale.github.io">Michael Zingale</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+&copy; 2023; CC-BY-NC-SA 4.0
+<p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
