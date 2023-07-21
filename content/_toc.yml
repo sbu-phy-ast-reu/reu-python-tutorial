@@ -31,5 +31,5 @@ chapters:
     - file: 05-python-scipy/scipy-exercises
   - file: 06-python-sympy/README
     sections:
-    - file: 06-python-sympy/sympy-basics
+    - file: 06-python-sympy/sympy-examples
     - file: 06-python-sympy/sympy-exercises
