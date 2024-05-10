@@ -1,35 +1,60 @@
 format: jb-book
 root: Introduction
-chapters:
-  - file: using
-  - file: 01-python-basics/python
-    sections:
-    - file: 01-python-basics/jupyter
-    - file: 01-python-basics/python-datatypes
-    - file: 01-python-basics/python-advanced-datatypes
-    - file: 01-python-basics/python-controlflow
-    - file: 01-python-basics/python-topic1-exercises1
-  - file: 02-python-functions-classes/README
-    sections:
-    - file: 02-python-functions-classes/python-functions
-    - file: 02-python-functions-classes/python-topic2-exercises1
-    - file: 02-python-functions-classes/python-classes
-    - file: 02-python-functions-classes/python-modules
-    - file: 02-python-functions-classes/python-topic2-exercises2
-  - file: 03-python-numpy/README
-    sections:
-    - file: 03-python-numpy/numpy-basics
-    - file: 03-python-numpy/numpy-intermediate
-    - file: 03-python-numpy/numpy-exercises
-  - file: 04-python-matplotlib/README
-    sections:
-    - file: 04-python-matplotlib/matplotlib-basics
-    - file: 04-python-matplotlib/matplotlib-exercises
-  - file: 05-python-scipy/README
-    sections:
-    - file: 05-python-scipy/scipy-basics
-    - file: 05-python-scipy/scipy-exercises
-  - file: 06-python-sympy/README
-    sections:
-    - file: 06-python-sympy/sympy-examples
-    - file: 06-python-sympy/sympy-exercises
+parts:
+  - caption: Getting Started
+    chapters:
+    - file: using
+
+  - caption: Python Basics
+    chapters:
+    - file: 01-python-basics/python
+      sections:
+      - file: 01-python-basics/jupyter
+      - file: 01-python-basics/python-datatypes
+      - file: 01-python-basics/python-advanced-datatypes
+      - file: 01-python-basics/python-controlflow
+      - file: 01-python-basics/python-topic1-exercises1
+    - file: 02-python-functions-classes/README
+      sections:
+      - file: 02-python-functions-classes/python-functions
+      - file: 02-python-functions-classes/python-topic2-exercises1
+      - file: 02-python-functions-classes/python-classes
+      - file: 02-python-functions-classes/python-modules
+      - file: 02-python-functions-classes/python-topic2-exercises2
+
+  - caption: Arrays
+    chapters:
+    - file: 03-python-numpy/README
+      sections:
+      - file: 03-python-numpy/numpy-basics
+      - file: 03-python-numpy/numpy-intermediate
+      - file: 03-python-numpy/numpy-exercises
+
+  - caption: Scientific Python
+    chapters:
+    - file: 04-python-matplotlib/README
+      sections:
+      - file: 04-python-matplotlib/matplotlib-basics
+      - file: 04-python-matplotlib/matplotlib-exercises
+    - file: 05-python-scipy/README
+      sections:
+      - file: 05-python-scipy/scipy-basics
+      - file: 05-python-scipy/scipy-exercises
+    - file: 06-python-sympy/README
+      sections:
+      - file: 06-python-sympy/sympy-examples
+      - file: 06-python-sympy/sympy-exercises
+
+  - caption: Machine Learning
+    chapters:
+    - file: 11-machine-learning/neural-net-basics
+      sections:
+      - file: 11-machine-learning/gradient-descent
+      - file: 11-machine-learning/neural-net-derivation
+    - file: 11-machine-learning/neural-net-hidden
+      sections:
+      - file: 11-machine-learning/neural-net-improvements
+    - file: 11-machine-learning/machine-learning-libraries
+      sections:
+      - file: 11-machine-learning/keras-mnist
+      - file: 11-machine-learning/keras-clustering
