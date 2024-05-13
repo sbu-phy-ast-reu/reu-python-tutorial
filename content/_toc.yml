@@ -41,6 +41,10 @@ parts:
       sections:
       - file: 05-python-scipy/scipy-basics
       - file: 05-python-scipy/scipy-exercises
+      - file: 05-python-scipy/scipy-basics-2
+      - file: 05-python-scipy/scipy-exercises-2
+    - file: 06-sympy/sympy
+      - file: 05-python-scipy/scipy-exercises
     - file: 06-python-sympy/README
       sections:
       - file: 06-python-sympy/sympy-examples
