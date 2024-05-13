@@ -9,7 +9,6 @@
 5     |  Jun 28      | 10a -11a   |  scipy
 6     |  no meeting  |  -         |   -
 7     |  July 12     | 10a -11a   |  sympy
-8     |  July 15*    | 10a -11a   |  machine learning
+8     |  July 19     | 10a -11a   |  machine learning
 9     |  July 26     | 10a -11a   |  extensions
 
-\* Note: special day
