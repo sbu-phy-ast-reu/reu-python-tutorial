@@ -4,6 +4,7 @@ parts:
   - caption: Getting Started
     chapters:
     - file: using
+    - file: schedule
 
   - caption: Python Basics
     chapters:
