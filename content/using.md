@@ -34,3 +34,12 @@ access them to run them on your own.
     Google's version of an online notebook, which runs directly in
     Google's cloud.  This starts up almost instantly.
 
+````{note}
+Some notebooks use [MyST Markdown](https://jupyterbook.org/en/stable/content/myst.html) to 
+allow for more styling.  To see these styles, you need to install `jupyterlab-myst`, which
+can be done via:
+```
+pip install jupyterlab_myst
+```
+
+````
