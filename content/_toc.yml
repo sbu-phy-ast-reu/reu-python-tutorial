@@ -59,3 +59,8 @@ parts:
       sections:
       - file: 11-machine-learning/keras-mnist
       - file: 11-machine-learning/keras-clustering
+
+  - caption: Extensions
+    chapters:
+    - file: 12-extensions/extensions-overview
+    - file: 12-extensions/extensions-example
