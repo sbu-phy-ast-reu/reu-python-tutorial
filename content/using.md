@@ -39,7 +39,7 @@ Some notebooks use [MyST Markdown](https://jupyterbook.org/en/stable/content/mys
 allow for more styling.  To see these styles, you need to install `jupyterlab-myst`, which
 can be done via:
 ```
-pip install jupyterlab_myst
+pip3 install jupyterlab_myst
 ```
 
 ````
