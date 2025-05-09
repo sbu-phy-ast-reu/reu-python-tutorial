@@ -19,7 +19,7 @@ jobs:
 
     - name: Install Python dependencies
       run: |
-        sudo apt-get install python3-pip graphviz
+        sudo apt-get install python3-pip
         pip install -r requirements.txt
         pip install ghp-import
         PATH="${PATH}:${HOME}/.local/bin"
