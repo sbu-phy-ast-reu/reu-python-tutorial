@@ -67,6 +67,7 @@ You should install Jupyter as:
 ```bash
 pip3 install jupyterlab --user
 pip3 install traitlets --upgrade --user
+pip3 install ipykernel --upgrade --user
 ```
 
 Unfortunately, this does not put it in your path, so you need to start
