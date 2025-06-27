@@ -2,11 +2,11 @@
 #include <cmath>
 #include <complex>
 
-#include <pybind11/pybind11.h>
-#include <pybind11/numpy.h>
+#include <nanobind/nanobind.h>
+#include <nanobind/numpy.h>
 
 
-namespace py = pybind11;
+namespace nb = nanobind;
 
 using namespace std::complex_literals;
 
@@ -25,7 +25,7 @@ public:
     }
 };
 
-py::array_t<int> mandelbrot(int N,
+nb::array_t<int> mandelbrot(int N,
                             double xmin, double xmax,
                             double ymin, double ymax, int max_iter) {
 
@@ -35,7 +35,7 @@ py::array_t<int> mandelbrot(int N,
     constexpr std::size_t elsize = sizeof(int);
     std::size_t shape[2]{N, N};
     std::size_t strides[2]{N * elsize, elsize};
-    auto m = py::array_t<int>(shape, strides);
+    auto m = nb::array_t<int>(shape, strides);
     auto m_view = m.mutable_unchecked<2>();
 
     // we'll use a simple contiguous array here.  When
@@ -91,7 +91,7 @@ py::array_t<int> mandelbrot(int N,
 }
 
 
-PYBIND11_MODULE(mandel, m) {
+NB_MODULE(mandel, m) {
     m.doc() = "C++ Mandelbrot example";
     m.def("mandelbrot", &mandelbrot, "generate the Mandelbrot set of size N");
 }
